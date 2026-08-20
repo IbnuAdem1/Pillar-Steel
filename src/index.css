@@ -47,6 +47,347 @@ body {
 }
 
 /* ==========================================================================
+   ABOUT PAGE STYLES
+   ========================================================================== */
+
+/* About Hero */
+.about-hero-section {
+  width: 100%;
+  background-color: var(--primary-orange);
+  background-image:
+    linear-gradient(rgba(253, 93, 0, 0.82), rgba(253, 93, 0, 0.82)),
+    url('/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+}
+
+.about-hero-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 40px 40px 0 40px;
+  text-align: center;
+}
+
+.about-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 16px;
+}
+
+.about-hero-us {
+  color: var(--color-white);
+}
+
+.about-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 400;
+  color: var(--color-black);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mission / Vision / Our Goal Cards */
+.about-mvg-section {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 60px 40px;
+}
+
+.about-mvg-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.about-mvg-card {
+  background-color: var(--color-white);
+  border: 1px solid rgba(253, 93, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 4px 4px 14px rgba(0,0,0,0.08);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-mvg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.about-mvg-icon {
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+.about-mvg-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 12px;
+}
+
+.about-mvg-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Our Story */
+.about-story-section {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 60px 40px;
+}
+
+.about-story-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 52px;
+}
+
+.about-story-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-story-title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  color: var(--primary-orange);
+  margin-bottom: 20px;
+}
+
+.about-story-para {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  text-align: justify;
+}
+
+.about-story-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-orange);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-orange);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.about-story-btn:hover {
+  background-color: var(--color-white);
+  color: var(--primary-orange);
+}
+
+.about-story-img-col {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-story-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Modern Steel Factory */
+.about-factory-section {
+  width: 100%;
+  display: flex;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.about-factory-img-col {
+  flex: 1;
+  overflow: hidden;
+}
+
+.about-factory-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-factory-text-col {
+  flex: 0 0 50%;
+  background-color: var(--primary-orange);
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-factory-title {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.about-factory-para {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.7;
+}
+
+/* OUR COMMITMENT */
+.about-commitment-section {
+  width: 100%;
+  background-color: var(--primary-orange);
+  padding: 64px 40px;
+}
+
+.about-commitment-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-commitment-title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.about-commitment-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Our Core Values */
+.about-values-section {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 70px 40px 80px 40px;
+}
+
+.about-values-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-values-title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  color: var(--primary-orange);
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.about-values-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.about-value-card {
+  background-color: var(--color-white);
+  border: 1px solid rgba(253, 93, 0, 0.18);
+  border-radius: 16px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.07);
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.about-value-icon {
+  width: 64px;
+  height: 64px;
+  background-color: var(--primary-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.about-value-card-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
+
+.about-value-card-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
    1. HERO SECTION
    ========================================================================== */
 .hero-section {

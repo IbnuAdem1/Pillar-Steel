@@ -1,0 +1,5 @@
+# Robots.txt for Pillar Steel Factory Ethiopia
+User-agent: *
+Allow: /
+
+Sitemap: https://pillarsteelethiopia.com/sitemap.xml

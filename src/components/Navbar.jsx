@@ -25,9 +25,9 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
-    { label: 'Services', href: isAboutPage ? '/#services' : '#services' },
-    { label: 'Gallery', href: isAboutPage ? '/#gallery' : '#gallery' },
-    { label: 'Contact', href: isAboutPage ? '/#contact' : '#contact' },
+    { label: 'Services', href: '/services' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -42,11 +42,12 @@ export default function Navbar() {
         <div className="navbar-right desktop-only">
           <ul className="navbar-links">
             {navLinks.map(({ label, href }) => {
-              const isActive = label === 'Home'
-                ? location.pathname === '/'
-                : label === 'About Us'
-                ? location.pathname === '/about'
-                : false;
+              const isActive =
+                (label === 'Home' && location.pathname === '/') ||
+                (label === 'About Us' && location.pathname === '/about') ||
+                (label === 'Services' && location.pathname === '/services') ||
+                (label === 'Gallery' && location.pathname === '/gallery') ||
+                (label === 'Contact' && location.pathname === '/contact');
               return (
                 <li key={label}>
                   {href.startsWith('/') && !href.includes('#') ? (

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import logoImg from '../assets/nav-logo.png';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
@@ -28,9 +28,9 @@ export default function Footer() {
         <div className="footer-main">
           {/* Logo & Tagline Column */}
           <div className="footer-logo-col">
-            <a href="#home">
+            <Link to="/">
               <img src={logoImg} alt="Pillar Steel Logo" className="footer-logo" />
-            </a>
+            </Link>
             <p className="footer-tagline">We build strength by shaping the future. Work with us.</p>
           </div>
 
@@ -40,16 +40,16 @@ export default function Footer() {
             <div className="footer-links-cols">
               <div className="footer-links-col">
                 <ul className="footer-links-list">
-                  <li><a href="#home" className="footer-link">Home</a></li>
-                  <li><a href="#about" className="footer-link">About Us</a></li>
-                  <li><a href="#services" className="footer-link">Our Services</a></li>
-                  <li><a href="#gallery" className="footer-link">Gallery</a></li>
-                  <li><a href="#contact" className="footer-link">Contact</a></li>
+                  <li><Link to="/" className="footer-link">Home</Link></li>
+                  <li><Link to="/about" className="footer-link">About Us</Link></li>
+                  <li><Link to="/services" className="footer-link">Our Services</Link></li>
+                  <li><Link to="/gallery" className="footer-link">Gallery</Link></li>
+                  <li><Link to="/contact" className="footer-link">Contact</Link></li>
                 </ul>
               </div>
               <div className="footer-links-col">
                 <ul className="footer-links-list">
-                  <li><a href="#why-pillarsteel" className="footer-link">Why Choose Us</a></li>
+                  <li><a href="/#why-pillarsteel" className="footer-link">Why Choose Us</a></li>
                   <li><a href="#" className="footer-link">Blogs</a></li>
                 </ul>
               </div>

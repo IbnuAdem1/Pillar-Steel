@@ -1,0 +1,57 @@
+/* ============================================================
+   PILLAR STEEL – Design Tokens
+   Source of Truth extracted from Home & About pages
+   Zero visual changes — values strictly preserved
+   ============================================================ */
+
+:root {
+  /* Brand Colors */
+  --primary-orange: #FD5D00;
+  --color-primary: #FD5D00;
+  --primary-orange-light: rgba(253, 93, 0, 0.23);
+  --color-primary-light: rgba(253, 93, 0, 0.23);
+
+  /* Neutral Colors */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gray-bg: #F8F8F8;
+  --color-light-bg: #F8F8F8;
+  --color-card-bg-alt: #F2F2F2;
+  --color-dark: #282828;
+  --color-footer-bg: #282828;
+
+  /* Typography Colors */
+  --color-text-dark: #333333;
+  --color-text-muted: #656565;
+
+  /* Typography Fonts */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout & Spacing */
+  --container-max: 1140px;
+  --section-pad-x: 40px;
+
+  /* Component Tokens */
+  --radius-card: 16px;
+  --radius-card-lg: 25px;
+  --radius-btn: 10px;
+  --radius-pill: 20px;
+  --radius-hero: 30px;
+  
+  --shadow-card: 4px 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
+  --shadow-service-card: 7px 7px 12px #B3B9B4;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

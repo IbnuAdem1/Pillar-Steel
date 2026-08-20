@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import AccordionFeatureList from './ui/AccordionFeatureList';
+import CTAButton from './ui/CTAButton';
 import chooseImg from '../assets/choose.webp';
 
 const REASONS = [
@@ -30,17 +32,11 @@ const REASONS = [
 ];
 
 export default function WhyChooseUs() {
-  const [openId, setOpenId] = useState(null);
-
-  const toggle = (id) => {
-    setOpenId((prev) => (prev === id ? null : id));
-  };
-
   return (
     <section className="whychoose-section" id="why-pillarsteel">
       {/* Left: factory image with orange overlay */}
       <div className="whychoose-image-side">
-        <img src={chooseImg} alt="Pillar Steel Facility" className="whychoose-bg-img" />
+        <img src={chooseImg} alt="Pillar Steel Facility" className="whychoose-bg-img" loading="lazy" />
         <div className="whychoose-overlay" />
       </div>
 
@@ -49,35 +45,12 @@ export default function WhyChooseUs() {
         <h2 className="whychoose-title">Why Choose Us?</h2>
 
         <div className="whychoose-card">
-          {REASONS.map(({ id, title, content }) => {
-            const isOpen = openId === id;
-            return (
-              <div key={id} className="whychoose-item">
-                <button
-                  className="whychoose-item-header"
-                  onClick={() => toggle(id)}
-                  aria-expanded={isOpen}
-                  aria-controls={`wcu-content-${id}`}
-                  id={`wcu-btn-${id}`}
-                >
-                  <span className="whychoose-plus">{isOpen ? '−' : '+'}</span>
-                  <span className="whychoose-item-text">{title}</span>
-                </button>
-                <div
-                  id={`wcu-content-${id}`}
-                  className={`whychoose-item-body${isOpen ? ' open' : ''}`}
-                  aria-labelledby={`wcu-btn-${id}`}
-                >
-                  <p className="whychoose-item-desc">{content}</p>
-                </div>
-              </div>
-            );
-          })}
+          <AccordionFeatureList items={REASONS} />
         </div>
 
-        <a href="#contact" className="whychoose-cta-btn" id="why-choose-us-buy-now">
+        <CTAButton href="#contact" variant="secondary" className="whychoose-cta-btn" id="why-choose-us-buy-now">
           Buy Now
-        </a>
+        </CTAButton>
       </div>
     </section>
   );

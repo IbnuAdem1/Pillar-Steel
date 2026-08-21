@@ -37,7 +37,6 @@ export default function PageHero({
         backgroundImage: `linear-gradient(rgba(253, 93, 0, 0.82), rgba(253, 93, 0, 0.82)), url('${bgImage}')`,
       }}
     >
-      <Navbar />
       <motion.div
         className="page-hero-content"
         variants={staggerContainer(0.1, 0.1)}

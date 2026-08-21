@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import Navbar from './components/Navbar';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
@@ -13,6 +15,12 @@ export default function App() {
 
   return (
     <div className="app-container">
+      {/* Reset scroll position on route navigation */}
+      <ScrollToTop />
+
+      {/* Global Fixed Scroll-Aware Navbar */}
+      <Navbar />
+
       <AnimatePresence mode="wait">
         <motion.div
           key={location.pathname}

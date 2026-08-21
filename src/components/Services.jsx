@@ -7,19 +7,19 @@ const SERVICES = [
     id: 'customized-solutions',
     title: 'Customized Solutions',
     description: 'We work closely with our clients to understand their specific requirements and offer tailored steel solutions.',
-    icon: () => <Layers size={36} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <Layers size={36} strokeWidth={2} />,
   },
   {
     id: 'technical-support',
     title: 'Technical Support',
     description: 'Our knowledgeable team provides technical assistance and guidance to ensure optimal product selection and application.',
-    icon: () => <Headphones size={36} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <Headphones size={36} strokeWidth={2} />,
   },
   {
     id: 'timely-delivery',
     title: 'Timely Delivery',
     description: 'We understand the importance of project timelines and are dedicated to efficient and reliable delivery services.',
-    icon: () => <Truck size={36} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <Truck size={36} strokeWidth={2} />,
   },
 ];
 

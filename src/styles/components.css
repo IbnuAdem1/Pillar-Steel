@@ -91,7 +91,7 @@
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
-  padding: 40px 40px 0 40px;
+  padding: calc(var(--navbar-height) + 44px) 40px 0 40px;
   text-align: center;
 }
 
@@ -148,12 +148,24 @@
   height: 68px;
   border-radius: 50%;
   background-color: var(--color-primary);
+  border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   flex-shrink: 0;
   color: var(--color-white);
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+/* Shared badge hover — scoped through card so it triggers on whole-card hover,
+   matching the existing .icon-card:hover lift. Works for every section that
+   composes IconCard (Core Values, Mission/Vision/Goal, Services, Competitive
+   Advantage, Home Services) without any per-page override needed. */
+.icon-card:hover .icon-card-badge {
+  background-color: var(--color-white);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .icon-card-title {
@@ -350,6 +362,16 @@
   align-items: center;
 }
 
+.about-values-title {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
 .about-values-top-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -508,12 +530,20 @@
   height: 64px;
   border-radius: 50%;
   background-color: var(--color-primary);
+  border: 2px solid transparent;
   color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
   flex-shrink: 0;
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+.info-card:hover .info-card-icon-wrap {
+  background-color: var(--color-white);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .info-card-title {
@@ -1094,7 +1124,7 @@
   }
 
   .page-hero-content {
-    padding: 24px 20px 0 20px;
+    padding: calc(var(--navbar-height) + 24px) 20px 0 20px;
   }
 
   .page-hero-title {
@@ -1167,6 +1197,11 @@
 
   .gallery-card-img-wrap {
     height: 200px;
+  }
+
+  .about-values-title {
+    font-size: 28px;
+    margin-bottom: 32px;
   }
 }
 

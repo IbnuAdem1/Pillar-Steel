@@ -13,7 +13,7 @@ import { staggerContainer, fadeUp } from '../lib/motion';
 const CONTACT_INFO = [
   {
     id: 'address',
-    icon: () => <MapPin size={30} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <MapPin size={30} strokeWidth={2} />,
     title: 'Our Location',
     content: 'Chafe Tumma, Tullu Dimtu, Shaggar City, Ethiopia',
     linkHref: 'https://maps.google.com/maps?q=Pillar%20Steel%20Factory%20Bulgaria%20Street%20Addis%20Ababa',
@@ -21,7 +21,7 @@ const CONTACT_INFO = [
   },
   {
     id: 'phone',
-    icon: () => <Phone size={30} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <Phone size={30} strokeWidth={2} />,
     title: 'Phone Numbers',
     content: '+251 93 030 3831 / +251 97 303 2277',
     linkHref: 'tel:+251930303831',
@@ -29,7 +29,7 @@ const CONTACT_INFO = [
   },
   {
     id: 'email',
-    icon: () => <Mail size={30} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <Mail size={30} strokeWidth={2} />,
     title: 'Email Address',
     content: 'steelpillar92@gmail.com',
     linkHref: 'mailto:steelpillar92@gmail.com',
@@ -37,7 +37,7 @@ const CONTACT_INFO = [
   },
   {
     id: 'hours',
-    icon: () => <Clock size={30} color="#FFFFFF" strokeWidth={2} />,
+    icon: () => <Clock size={30} strokeWidth={2} />,
     title: 'Opening Hours',
     content: 'Monday – Saturday: 8:30 AM – 5:30 PM',
   },

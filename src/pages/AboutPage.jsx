@@ -12,91 +12,27 @@ import factoryImg from '../assets/choose.webp'; // Long factory workshop with bl
 import commitmentImg from '../assets/about-us.jpg'; // Roll-forming machine line
 import { staggerContainer, fadeUp } from '../lib/motion';
 
-/* ── 1. Precise SVG Icons Matching Reference Image ── */
+import { 
+  Target, 
+  Eye, 
+  Lightbulb, 
+  BadgeCheck, 
+  ShieldCheck, 
+  Sparkles, 
+  Leaf, 
+  Handshake 
+} from 'lucide-react';
 
-// Mission: Magnifying glass / precision target style icon
-const MissionIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="28" cy="28" r="16" stroke="white" strokeWidth="3" />
-    <circle cx="28" cy="28" r="8" stroke="white" strokeWidth="2.5" />
-    <circle cx="28" cy="28" r="2.5" fill="white" />
-    <path d="M40 40L54 54" stroke="white" strokeWidth="4" strokeLinecap="round" />
-  </svg>
-);
+/* ── 1. Modern Crisp Icons for About Page ── */
+const MissionIcon = () => <Target size={32} strokeWidth={2.2} />;
+const VisionIcon = () => <Eye size={32} strokeWidth={2.2} />;
+const GoalIcon = () => <Lightbulb size={32} strokeWidth={2.2} />;
 
-// Vision: Eye icon
-const VisionIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <ellipse cx="32" cy="32" rx="26" ry="16" stroke="white" strokeWidth="3" />
-    <circle cx="32" cy="32" r="8" stroke="white" strokeWidth="3" />
-    <circle cx="32" cy="32" r="3.5" fill="white" />
-  </svg>
-);
-
-// Our Goal: Lightbulb / target goal icon
-const GoalIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <path
-      d="M32 10C22.059 10 14 18.059 14 28c0 6.2 3.14 11.66 7.9 14.88V48c0 1.1.9 2 2 2h16.2c1.1 0 2-.9 2-2v-5.12C46.86 39.66 50 34.2 50 28c0-9.941-8.059-18-18-18z"
-      stroke="white"
-      strokeWidth="3"
-    />
-    <path d="M26 54h12M28 58h8" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <path d="M32 20v8M28 24h8" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-  </svg>
-);
-
-// Quality: Gear with star/ribbon
-const QualityIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="32" cy="32" r="14" stroke="white" strokeWidth="3" />
-    <path d="M32 6v6M32 52v6M6 32h6M52 32h6M13.6 13.6l4.2 4.2M46.2 46.2l4.2 4.2M13.6 50.4l4.2-4.2M46.2 17.8l4.2-4.2" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <path d="M26 32l4 4 8-8" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-// Reliability: Bar chart / upward growth
-const ReliabilityIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <path d="M12 52h40" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <path d="M20 52V36" stroke="white" strokeWidth="4" strokeLinecap="round" />
-    <path d="M32 52V24" stroke="white" strokeWidth="4" strokeLinecap="round" />
-    <path d="M44 52V14" stroke="white" strokeWidth="4" strokeLinecap="round" />
-    <path d="M18 30l12-10 10 6 8-10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-// Innovation: Lightbulb with beams
-const InnovationIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="32" cy="24" r="14" stroke="white" strokeWidth="3" />
-    <path d="M26 38h12M28 44h8M30 50h4" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <path d="M32 6V2M50 24h4M10 24h4M45 11l3-3M19 11l-3-3" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-  </svg>
-);
-
-// Sustainability: Eco leaf
-const SustainabilityIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <path
-      d="M16 48C16 48 20 30 36 20C48 12.5 52 12 52 12C52 12 51.5 16 44 28C34 44 16 48 16 48Z"
-      stroke="white"
-      strokeWidth="3"
-      strokeLinejoin="round"
-    />
-    <path d="M16 48C26 42 34 32 38 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-  </svg>
-);
-
-// Partnership: Two people connected / handshake
-const PartnershipIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="22" cy="22" r="8" stroke="white" strokeWidth="3" />
-    <circle cx="42" cy="22" r="8" stroke="white" strokeWidth="3" />
-    <path d="M10 50c0-6.627 5.373-12 12-12h20c6.627 0 12 5.373 12 12" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    <path d="M26 44l6 6 12-12" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const QualityIcon = () => <BadgeCheck size={32} strokeWidth={2.2} />;
+const ReliabilityIcon = () => <ShieldCheck size={32} strokeWidth={2.2} />;
+const InnovationIcon = () => <Sparkles size={32} strokeWidth={2.2} />;
+const SustainabilityIcon = () => <Leaf size={32} strokeWidth={2.2} />;
+const PartnershipIcon = () => <Handshake size={32} strokeWidth={2.2} />;
 
 /* ── 2. Exact Card Data Matching Reference ── */
 const MISSION_CARDS = [
@@ -172,7 +108,7 @@ export default function AboutPage() {
         description="Learn about Pillar Steel Factory, our mission, vision, state-of-the-art facility in Tulu Dimtu, Oromia Regional State, and commitment to Ethiopian infrastructure growth."
       />
 
-      {/* ── 1. Hero ── */}
+      {/* ── 1. Page Hero ── */}
       <PageHero
         title="About US"
         highlightWord="US"
@@ -180,14 +116,14 @@ export default function AboutPage() {
         className="about-hero-section"
       />
 
-      {/* ── 2. Mission / Vision / Our Goal Cards (Tucked closely under hero) ── */}
+      {/* ── 2. Mission / Vision / Our Goal Cards ── */}
       <section className="about-mvg-section" id="mission-vision-goals">
         <motion.div
           className="about-mvg-container"
           variants={staggerContainer(0.1)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {MISSION_CARDS.map(({ id, icon, title, description }) => (
             <IconCard

@@ -69,6 +69,7 @@
 
 /* ── 2. Page Hero Component (Interior Pages) ── */
 .page-hero-section {
+  position: relative;
   width: 100%;
   background-color: var(--color-primary);
   background-size: cover;
@@ -81,8 +82,14 @@
   padding-bottom: 60px;
 }
 
+.about-hero-section,
+.contact-hero-section {
+  padding-bottom: 150px;
+}
+
 .page-hero-content {
   max-width: var(--container-max);
+  width: 100%;
   margin: 0 auto;
   padding: 40px 40px 0 40px;
   text-align: center;
@@ -92,7 +99,7 @@
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
-  color: var(--color-black);
+  color: var(--color-white);
   margin-bottom: 16px;
   text-transform: uppercase;
 }
@@ -104,8 +111,8 @@
 .page-hero-subtitle {
   font-family: var(--font-body);
   font-size: clamp(14px, 1.5vw, 17px);
-  font-weight: 400;
-  color: var(--color-black);
+  font-weight: 600;
+  color: var(--color-white);
   line-height: 1.6;
   max-width: 620px;
   margin: 0 auto;
@@ -279,13 +286,17 @@
 
 /* ── About Page Specific Section Refinements ── */
 .about-mvg-section {
+  position: relative;
+  z-index: 10;
   width: 100%;
-  background-color: var(--color-white);
-  padding: 18px 40px 50px 40px;
+  background-color: transparent;
+  padding: 0 40px 60px 40px;
+  margin-top: -95px;
 }
 
 .about-mvg-container {
   max-width: var(--container-max);
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -293,16 +304,22 @@
 }
 
 .about-top-card {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(253, 93, 0, 0.14);
-  padding: 32px 24px;
+  background-color: var(--color-white);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  border: none;
+  border-radius: 20px;
+  padding: 36px 28px 32px 28px;
+}
+
+.about-top-card .icon-card-title {
+  color: var(--color-primary);
 }
 
 .about-top-card .icon-card-desc {
   font-size: 14px;
   line-height: 1.65;
   color: #4a4a4a;
-  text-align: justify;
+  text-align: center;
 }
 
 .about-story-compact,
@@ -351,15 +368,48 @@
 }
 
 .about-value-card-item {
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(253, 93, 0, 0.14);
-  padding: 28px 20px;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(253, 93, 0, 0.12);
+  border-radius: 20px;
+  padding: 32px 24px;
+}
+
+.about-value-card-item .icon-card-title {
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
 .about-value-card-item .icon-card-desc {
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.6;
   color: #4a4a4a;
+  text-align: center;
+}
+
+.service-alternating-section {
+  padding: 50px 40px;
+}
+
+.service-alternating-section .alternating-image-col {
+  height: 320px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-alternating-section .alternating-title {
+  font-size: clamp(28px, 3.2vw, 40px);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.service-alternating-section .alternating-description p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #333333;
+  margin-bottom: 20px;
 }
 
 /* ── 5. Accordion Feature List Component ── */
@@ -771,9 +821,12 @@
 
 /* ── 9. Contact Page Layout Styles ── */
 .contact-info-cards-section {
+  position: relative;
+  z-index: 10;
   width: 100%;
-  background-color: var(--color-white);
-  padding: 60px 40px 20px 40px;
+  background-color: transparent;
+  padding: 0 40px 40px 40px;
+  margin-top: -95px;
 }
 
 .contact-info-cards-container {
@@ -782,6 +835,66 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+}
+
+.info-card {
+  background-color: var(--color-white);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: none;
+  border-radius: 20px;
+  padding: 34px 22px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+}
+
+.info-card-icon-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+  color: var(--color-white);
+}
+
+.info-card-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
+
+.info-card-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-card-link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-card-link:hover {
+  color: var(--color-primary);
 }
 
 .contact-form-section {
@@ -956,11 +1069,6 @@
     gap: 20px;
   }
 
-  .about-values-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
   .alternating-container {
     gap: 36px;
   }
@@ -972,6 +1080,17 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding-bottom: 40px;
+  }
+
+  .about-hero-section,
+  .contact-hero-section {
+    padding-bottom: 100px;
+  }
+
+  .about-mvg-section,
+  .contact-info-cards-section {
+    margin-top: -40px;
+    padding: 0 20px 30px 20px;
   }
 
   .page-hero-content {
@@ -1055,6 +1174,22 @@
 @media (max-width: 480px) {
   .page-hero-title {
     font-size: 32px;
+  }
+
+  .page-hero-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .about-hero-section,
+  .contact-hero-section {
+    padding-bottom: 90px;
+  }
+
+  .about-mvg-section,
+  .contact-info-cards-section {
+    margin-top: -35px;
+    padding: 0 16px 28px 16px;
   }
 
   .page-hero-subtitle {

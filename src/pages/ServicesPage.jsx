@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import SEO from '../components/layout/SEO';
 import PageHero from '../components/ui/PageHero';
 import AlternatingSection from '../components/ui/AlternatingSection';
@@ -6,78 +7,63 @@ import IconCard from '../components/ui/IconCard';
 import GalleryGrid from '../components/ui/GalleryGrid';
 import Footer from '../components/Footer';
 
-// Assets
-import aboutImg from '../assets/about-us.jpg';
-import chooseImg from '../assets/choose.webp';
-import works1 from '../assets/works-1.webp';
-import works2 from '../assets/works-2.webp';
-import works3 from '../assets/works-3.jpg';
-import works4 from '../assets/works-4.jpg';
-import work5 from '../assets/work-5.jpg';
-import work6 from '../assets/work-6.jpg';
+// Assets matching the reference design layout exactly
+import works1 from '../assets/works-1.webp'; // Overhead crane workshop
+import works2 from '../assets/works-2.webp'; // Stacks of steel plates on factory floor
+import works3 from '../assets/works-3.jpg';  // RHS sections
+import works4 from '../assets/works-4.jpg';  // Bundles of square/rectangular hollow sections
+import work5 from '../assets/work-5.jpg';   // Round pipe sections
+import work6 from '../assets/work-6.jpg';   // Purlins & profiles
+import { staggerContainer } from '../lib/motion';
 
-/* ── SVG Icons for Competitive Advantage ── */
-const ShieldIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <path d="M32 8L10 18v16c0 14 10 24 22 26 12-2 22-12 22-26V18L32 8z" stroke="white" strokeWidth="3" strokeLinejoin="round" />
-    <path d="M22 32l7 7 13-13" stroke="white" strokeWidth="3" strokeLinecap="round" />
-  </svg>
-);
-const TechIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="32" cy="32" r="14" stroke="white" strokeWidth="3" />
-    <path d="M32 6v8M32 50v8M6 32h8M50 32h8M14 14l6 6M44 44l6 6M14 50l6-6M44 20l6-6" stroke="white" strokeWidth="3" strokeLinecap="round" />
-  </svg>
-);
-const TeamIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="32" cy="20" r="10" stroke="white" strokeWidth="3" />
-    <path d="M12 50c0-9 9-16 20-16s20 7 20 16" stroke="white" strokeWidth="3" strokeLinecap="round" />
-  </svg>
-);
-const QualityCheckIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <circle cx="32" cy="32" r="26" stroke="white" strokeWidth="3" />
-    <path d="M20 32l8 8 16-16" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-const LocationPinIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" width="34" height="34" aria-hidden="true">
-    <path d="M32 6C20 6 12 15 12 26c0 16 20 32 20 32s20-16 20-32c0-11-8-20-20-20z" stroke="white" strokeWidth="3" />
-    <circle cx="32" cy="24" r="7" stroke="white" strokeWidth="3" />
-  </svg>
-);
+import { 
+  Cog, 
+  Users, 
+  Award, 
+  HeartHandshake, 
+  MapPin 
+} from 'lucide-react';
 
-const COMPETITIVE_ADVANTAGES = [
+/* ── Modern Lucide Icons for Competitive Advantage Matching Reference ── */
+const FacilityIcon = () => <Cog size={32} strokeWidth={2.2} />;
+const TeamIcon = () => <Users size={32} strokeWidth={2.2} />;
+const QualityIcon = () => <Award size={32} strokeWidth={2.2} />;
+const CustomerCentricIcon = () => <HeartHandshake size={32} strokeWidth={2.2} />;
+const LocationIcon = () => <MapPin size={32} strokeWidth={2.2} />;
+
+const COMPETITIVE_ADVANTAGES_TOP = [
   {
-    id: 'raw-materials',
-    icon: ShieldIcon,
-    title: 'High-Grade Raw Materials',
-    description: 'We source only certified prime steel coils and raw materials to ensure unmatched structural strength and longevity.',
+    id: 'facility',
+    icon: FacilityIcon,
+    title: 'State-of-the-Art Facility',
+    description: 'Our modern manufacturing plant ensures efficient production and consistent quality.',
   },
   {
-    id: 'modern-tech',
-    icon: TechIcon,
-    title: 'State-of-the-Art Technology',
-    description: 'Equipped with automated European-standard roll-forming and cutting lines for high precision and efficiency.',
-  },
-  {
-    id: 'experienced-team',
+    id: 'team',
     icon: TeamIcon,
-    title: 'Experienced Workforce',
-    description: 'Skilled metallurgical engineers and machine operators bringing decades of combined industry expertise.',
+    title: 'Experienced Team',
+    description: 'Our skilled workforce brings a wealth of expertise to every stage of the manufacturing process.',
   },
   {
-    id: 'quality-control',
-    icon: QualityCheckIcon,
-    title: 'Strict Quality Control',
-    description: 'Every pipe and profile undergoes rigorous dimensional, weld-integrity, and tensile strength testing.',
+    id: 'quality',
+    icon: QualityIcon,
+    title: 'Commitment to Quality',
+    description: 'We adhere to stringent quality control measures to guarantee superior products.',
+  },
+];
+
+const COMPETITIVE_ADVANTAGES_BOTTOM = [
+  {
+    id: 'customer-centric',
+    icon: CustomerCentricIcon,
+    title: 'Customer-Centric Approach',
+    description: 'We prioritize building long-term relationships through exceptional service and support.',
   },
   {
-    id: 'strategic-hub',
-    icon: LocationPinIcon,
+    id: 'strategic-location',
+    icon: LocationIcon,
     title: 'Strategic Location',
-    description: 'Located in Galan City with direct transit routes to Addis Ababa and nationwide construction hubs.',
+    description: 'Situated in Tulu Dimtu, a key industrial zone with access to transportation networks, we are well-positioned to serve the growing demand in Ethiopia and beyond.',
   },
 ];
 
@@ -94,87 +80,109 @@ export default function ServicesPage() {
   return (
     <>
       <SEO
-        title="Our Steel Products & Services | Pillar Steel Factory"
-        description="Explore Pillar Steel's customized steel fabrication, technical support, prompt delivery, RHS/SHS hollow sections, round pipes, and structural steel profiles."
+        title="Our Services | Pillar Steel Factory Ethiopia"
+        description="Expert steel processing services in Addis Ababa delivering quality, support, and on-time solutions. Precision slitting, cut-to-length, and structural steel manufacturing."
       />
 
       {/* ── 1. Page Hero ── */}
       <PageHero
         title="Our Services"
         highlightWord="Services"
-        subtitle="Comprehensive steel manufacturing, precision cutting, and customized fabrication solutions for Ethiopia's growing infrastructure."
+        subtitle="Expert steel processing services in Addis Ababa delivering quality, support, and on-time solutions."
         className="services-hero-section"
       />
 
-      {/* ── 2. Customized Solutions (Alternating light) ── */}
+      {/* ── 2. Customized Solutions (Text Left, Image Right) ── */}
       <AlternatingSection
         id="customized-solutions"
-        subtitle="Tailored Fabrication"
         title="Customized Solutions"
-        description={[
-          "We work closely with contractors, engineers, and industrial clients to understand exact structural specifications and deliver tailored steel solutions.",
-          "From custom dimensional cuts to specialized profile shaping and project-specific bundle configurations, our engineering team ensures optimal compatibility for your construction timeline."
-        ]}
-        imageSrc={aboutImg}
-        imageAlt="Customized Steel Solutions at Pillar Steel"
+        description="Every project has unique structural demands. We deliver tailored steel processing services in Addis Ababa, from precision slitting and cut to length Ethiopia builders trust to custom hollow sections crafted to your exact specifications."
+        imageSrc={works2}
+        imageAlt="Customized Steel Solutions and Plate Processing"
         ctaText="Contact Us Now"
-        ctaTo="/#contact"
+        ctaTo="/contact"
         ctaVariant="primary"
+        className="service-alternating-section"
       />
 
-      {/* ── 3. Technical Support (Alternating reversed orange) ── */}
+      {/* ── 3. Technical Support (Image Left, Text Right) ── */}
       <AlternatingSection
         id="technical-support"
-        subtitle="Expert Consultation"
-        title="Technical Support & Advisory"
-        description={[
-          "Our knowledgeable metallurgical team provides dedicated technical assistance and engineering guidance to ensure optimal product selection and application.",
-          "We help you determine the exact gauge, profile strength, and load tolerances required to maximize safety and cost-efficiency on every structural build."
-        ]}
-        imageSrc={chooseImg}
-        imageAlt="Technical Support and Consultation"
+        title="Technical Support"
+        description="As a leading steel factory in Addis Ababa, our technical team provides expert engineering advice, material selection guidance, and fabrication support. Pillar Steel Ethiopia helps you optimize efficiency while minimizing site waste."
+        imageSrc={works1}
+        imageAlt="Technical Support and Overhead Crane Steel Processing"
         reverse={true}
-        theme="orange"
+        theme="light"
         ctaText="Let's Work Together"
-        ctaTo="/#contact"
-        ctaVariant="secondary"
+        ctaTo="/contact"
+        ctaVariant="primary"
+        className="service-alternating-section"
       />
 
-      {/* ── 4. Timely Delivery (Alternating light) ── */}
+      {/* ── 4. Timely Delivery (Text Left, Image Right) ── */}
       <AlternatingSection
         id="timely-delivery"
-        subtitle="Logistics Excellence"
-        title="Reliable & Timely Delivery"
-        description={[
-          "We understand the critical importance of project milestones and construction timelines. Pillar Steel is dedicated to swift, safe, and efficient nationwide delivery.",
-          "Situated in Galan Industrial City, our fleet and logistics network connect directly to major highway corridors across Addis Ababa, Oromia, and national project sites."
-        ]}
-        imageSrc={works1}
-        imageAlt="Timely Delivery and Logistics Facility"
+        title="Timely Delivery"
+        description="Time is critical in construction. As premier providers of steel processing in Ethiopia, our reliable logistics network guarantees on-time delivery of processed steel straight to your job site, keeping your project on schedule."
+        imageSrc={works4}
+        imageAlt="Timely Delivery and Finished Steel Profile Bundles"
+        reverse={false}
+        theme="light"
         ctaText="Reach Out Now"
-        ctaTo="/#contact"
+        ctaTo="/contact"
         ctaVariant="primary"
+        className="service-alternating-section"
       />
 
-      {/* ── 5. Our Competitive Advantage (5 IconCards) ── */}
+      {/* ── 5. Our Competitive Advantage (3 top cards + 2 bottom cards centered) ── */}
       <section className="about-values-section" id="competitive-advantage">
         <div className="about-values-container">
           <h2 className="about-values-title">Our Competitive Advantage</h2>
-          <div className="about-values-grid">
-            {COMPETITIVE_ADVANTAGES.map(({ id, icon, title, description }) => (
+
+          {/* Top Row: 3 Cards */}
+          <motion.div
+            className="about-values-top-row"
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {COMPETITIVE_ADVANTAGES_TOP.map(({ id, icon, title, description }) => (
               <IconCard
                 key={id}
                 id={`advantage-${id}`}
                 title={title}
                 description={description}
                 icon={icon}
+                className="about-value-card-item"
               />
             ))}
-          </div>
+          </motion.div>
+
+          {/* Bottom Row: 2 Cards Centered */}
+          <motion.div
+            className="about-values-bottom-row"
+            variants={staggerContainer(0.1, 0.15)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {COMPETITIVE_ADVANTAGES_BOTTOM.map(({ id, icon, title, description }) => (
+              <IconCard
+                key={id}
+                id={`advantage-${id}`}
+                title={title}
+                description={description}
+                icon={icon}
+                className="about-value-card-item"
+              />
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* ── 6. Our Products & Services Gallery Strip ── */}
+      {/* ── 6. Our Products & Precision Profiles Gallery Strip (Preserved as requested) ── */}
       <section className="gallery-section" id="products-services-strip">
         <div className="gallery-container">
           <h2 className="gallery-title">Our Products & Precision Profiles</h2>

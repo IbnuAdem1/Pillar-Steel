@@ -123,9 +123,7 @@ export default function GalleryPage() {
         <div className="gallery-container">
           <div className="gallery-section-intro">
             <h2 className="gallery-title">Our Works & Facilities</h2>
-            <p className="gallery-subtitle">
-              Click any image to open the full-resolution lightbox view. Filter by category below:
-            </p>
+            
           </div>
 
           <GalleryGrid

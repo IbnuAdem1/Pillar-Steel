@@ -68,12 +68,12 @@ const COMPETITIVE_ADVANTAGES_BOTTOM = [
 ];
 
 const PRODUCTS_AND_SERVICES_IMAGES = [
-  { id: 'p1', src: works3, alt: 'RHS (Rectangular Hollow Sections) precision structural steel bundles', title: 'RHS (Rectangular Hollow Sections)' },
-  { id: 'p2', src: works4, alt: 'SHS (Square Hollow Sections) structural steel tubes neatly stacked', title: 'SHS (Square Hollow Sections)' },
-  { id: 'p3', src: work5, alt: 'Heavy-duty circular round pipe sections for structural construction', title: 'Circular Round Pipes' },
-  { id: 'p4', src: work6, alt: 'Cold-formed custom steel purlins and profile sections', title: 'Custom Profiles & Purlins' },
-  { id: 'p5', src: works2, alt: 'Heavy gauge flat steel plates and raw sheets stacked in storage bay', title: 'Steel Plates & Sheets' },
-  { id: 'p6', src: works1, alt: 'High-capacity industrial overhead crane bay and storage area', title: 'Heavy Structural Sections' },
+  { id: 'p1', src: works3, alt: 'RHS (Rectangular Hollow Sections) precision structural steel bundles' },
+  { id: 'p2', src: works4, alt: 'SHS (Square Hollow Sections) structural steel tubes neatly stacked' },
+  { id: 'p3', src: work5, alt: 'Heavy-duty circular round pipe sections for structural construction' },
+  { id: 'p4', src: work6, alt: 'Cold-formed custom steel purlins and profile sections' },
+  { id: 'p5', src: works2, alt: 'Heavy gauge flat steel plates and raw sheets stacked in storage bay' },
+  { id: 'p6', src: works1, alt: 'High-capacity industrial overhead crane bay and storage area' },
 ];
 
 export default function ServicesPage() {

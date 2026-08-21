@@ -9,12 +9,12 @@ import work5 from '../assets/work-5.jpg';
 import work6 from '../assets/work-6.jpg';
 
 const GALLERY_IMAGES = [
-  { id: 'g1', src: works1, alt: 'High-capacity industrial overhead crane bay and storage area', title: 'Factory Facility' },
-  { id: 'g2', src: works2, alt: 'Heavy gauge flat steel plates and raw sheets stacked in storage bay', title: 'Raw Materials' },
-  { id: 'g3', src: works3, alt: 'RHS (Rectangular Hollow Sections) precision structural steel bundles', title: 'RHS Sections' },
-  { id: 'g4', src: works4, alt: 'SHS (Square Hollow Sections) structural steel tubes neatly stacked', title: 'SHS Sections' },
-  { id: 'g5', src: work5, alt: 'Heavy-duty circular round pipe sections for structural construction', title: 'Round Pipe' },
-  { id: 'g6', src: work6, alt: 'Cold-formed custom steel purlins and profile sections', title: 'Structural Purlins' },
+  { id: 'g1', src: works1, alt: 'High-capacity industrial overhead crane bay and storage area' },
+  { id: 'g2', src: works2, alt: 'Heavy gauge flat steel plates and raw sheets stacked in storage bay' },
+  { id: 'g3', src: works3, alt: 'RHS (Rectangular Hollow Sections) precision structural steel bundles' },
+  { id: 'g4', src: works4, alt: 'SHS (Square Hollow Sections) structural steel tubes neatly stacked' },
+  { id: 'g5', src: work5, alt: 'Heavy-duty circular round pipe sections for structural construction' },
+  { id: 'g6', src: work6, alt: 'Cold-formed custom steel purlins and profile sections' },
 ];
 
 export default function Gallery() {

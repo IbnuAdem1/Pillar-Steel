@@ -147,9 +147,10 @@ body {
   position: relative;
   text-decoration: none;
   color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 15px;
+  font-family: var(--font-heading);
+  font-size: 18px;
   font-weight: 500;
+  line-height: 29px;
   letter-spacing: 0.01em;
   padding: 6px 2px;
   display: inline-flex;
@@ -432,9 +433,10 @@ body {
   display: block;
   text-decoration: none;
   color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 17px;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 29px;
   padding: 14px 18px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.06);
@@ -547,10 +549,10 @@ body {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 5.2vw, 5.2rem);
+  font-size: clamp(32px, 5.2vw, 64px);
   font-weight: 800;
-  line-height: 1.35;
-  color: var(--color-white);
+  line-height: clamp(44px, 6.5vw, 90px);
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   margin: 0 0 0 0;
   text-align: left;
@@ -559,13 +561,13 @@ body {
 .hero-description {
   margin-top: 26px;
   font-family: var(--font-body);
-  font-size: clamp(16px, 1.6vw, 18px);
-  font-weight: 400;
-  line-height: 1.55;
-  color: rgb(240, 232, 232);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: rgb(255, 255, 255);
   width: 60%;
   max-width: 60%;
-  text-align: justify;
+  text-align: left;
 }
 
 .hero-cta-group {
@@ -640,6 +642,9 @@ body {
   line-height: 1.6;
   margin-bottom: 28px;
   text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .about-readmore-btn {
@@ -697,11 +702,11 @@ body {
 }
 
 .services-title {
-  color: var(--primary-orange);
+  color: rgb(253, 93, 0);
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: clamp(28px, 4.5vw, 48px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 62px;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -745,18 +750,20 @@ body {
 }
 
 .service-card-title {
-  color: var(--primary-orange);
+  color: rgb(253, 93, 0);
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 23px;
   font-weight: 700;
+  line-height: 30px;
   margin-bottom: 12px;
 }
 
 .service-card-desc {
-  color: var(--color-text-muted);
+  color: rgb(101, 101, 101);
   font-family: var(--font-body);
   font-size: 18px;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 /* ==========================================================================
@@ -774,11 +781,11 @@ body {
 }
 
 .gallery-title {
-  color: var(--primary-orange);
+  color: rgb(253, 93, 0);
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: clamp(28px, 4.5vw, 48px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 62px;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -890,9 +897,9 @@ body {
 .whychoose-title {
   color: var(--color-white);
   font-family: var(--font-heading);
-  font-size: clamp(50px, 3vw, 60px);
+  font-size: clamp(28px, 4.5vw, 48px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 62px;
   margin-bottom: 14px;
 }
 
@@ -1019,11 +1026,11 @@ body {
 }
 
 .contact-title {
-  color: var(--primary-orange);
+  color: rgb(253, 93, 0);
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: clamp(28px, 4.5vw, 48px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 62px;
   margin-bottom: 28px;
 }
 
@@ -1156,9 +1163,11 @@ body {
 .footer-link {
   display: block;
   font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 400;
   font-size: 17px;
   line-height: 36px;
-  color: var(--color-white);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -1427,7 +1436,8 @@ body {
     width: 100%;
     max-width: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: clamp(16px, 4vw, 20px);
+    line-height: 28px;
   }
 
   .hero-cta-group {
@@ -1467,7 +1477,11 @@ body {
 
   .about-paragraph {
     font-size: 16px;
-    text-align: left;
+    line-height: 26px;
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 
   .about-readmore-btn {

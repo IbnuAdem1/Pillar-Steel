@@ -203,9 +203,6 @@ export default function GalleryGrid({
                 alt={selectedImage.alt || 'Enlarged Pillar Steel view'}
                 className="gallery-lightbox-img"
               />
-              {selectedImage.alt && (
-                <p className="gallery-lightbox-caption">{selectedImage.alt}</p>
-              )}
             </motion.div>
           </motion.div>
         )}

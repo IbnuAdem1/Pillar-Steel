@@ -94,8 +94,7 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="footer-copyright-bar">
         <p className="footer-copyright-text">
-          ©2026 | PillarSteel | All Rights Reserved | powered by{' '}
-          
+          ©2026 | PillarSteel | All Rights Reserved | 
         </p>
       </div>
     </footer>

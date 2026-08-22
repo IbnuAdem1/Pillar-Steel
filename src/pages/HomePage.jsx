@@ -16,6 +16,35 @@ export default function HomePage() {
         description="Pillar Steel Factory supplies high-grade structural steel pipes, hollow sections (RHS/SHS), custom profiles, and precision cutting across Ethiopia and East Africa."
       />
 
+      {/* ── Organization JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Pillar Steel Factory',
+            url: 'https://pillar-steel.com',
+            image: 'https://pillar-steel.com/hero-bg.webp',
+            description: 'Leading construction steel manufacturer in Ethiopia, supplying high-grade structural pipes, hollow sections, and custom steel profiles.',
+            telephone: '+251930303831',
+            email: 'steelpillar92@gmail.com',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Chafe Tumma, Tullu Dimtu',
+              addressLocality: 'Shaggar City',
+              addressCountry: 'ET',
+            },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Sales',
+              telephone: '+251930303831',
+              email: 'steelpillar92@gmail.com',
+            },
+          }),
+        }}
+      />
+
       {/* 1. Navbar + Hero Section */}
       <Hero />
 

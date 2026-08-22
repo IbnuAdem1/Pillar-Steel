@@ -4,14 +4,22 @@ import { useLocation } from 'react-router-dom';
 /**
  * Reusable SEO component for client-rendered React SPA.
  * Dynamically updates document title, description, canonical link, and OpenGraph tags per page.
+ * 
+ * @param {string} title - Page title (shown in browser tab & search results)
+ * @param {string} description - Meta description (shown in search results)
+ * @param {string} image - OG/Twitter image URL (social media preview)
+ * @param {string} twitterSite - Twitter handle for the site (optional, e.g., "@pillarsteel")
+ * @param {string} twitterCreator - Twitter handle of page creator (optional)
  */
 export default function SEO({
   title = 'Steel Supplier in Addis Ababa | Pillar Steel Ethiopia',
   description = 'Leading steel manufacturer in Ethiopia supplying high-grade structural steel pipes, hollow sections (RHS/SHS), custom steel profiles, and precision cutting.',
-  image = 'https://pillarsteelethiopia.com/hero-bg.webp',
+  image = 'https://pillar-steel.com/hero-bg.webp',
+  twitterSite = '',
+  twitterCreator = '',
 }) {
   const location = useLocation();
-  const canonicalUrl = `https://pillarsteelethiopia.com${location.pathname === '/' ? '' : location.pathname}`;
+  const canonicalUrl = `https://pillar-steel.com${location.pathname === '/' ? '' : location.pathname}`;
 
   useEffect(() => {
     // 1. Update Title
@@ -53,7 +61,17 @@ export default function SEO({
     setMetaTag('name', 'twitter:title', title);
     setMetaTag('name', 'twitter:description', description);
     setMetaTag('name', 'twitter:image', image);
-  }, [title, description, image, canonicalUrl]);
+    
+    // Twitter site handle (optional)
+    if (twitterSite) {
+      setMetaTag('name', 'twitter:site', twitterSite);
+    }
+    
+    // Twitter creator handle (optional)
+    if (twitterCreator) {
+      setMetaTag('name', 'twitter:creator', twitterCreator);
+    }
+  }, [title, description, image, canonicalUrl, twitterSite, twitterCreator]);
 
   return null;
 }

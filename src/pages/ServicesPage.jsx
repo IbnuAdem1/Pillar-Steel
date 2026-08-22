@@ -14,7 +14,7 @@ import works3 from '../assets/works-3.jpg';  // RHS sections
 import works4 from '../assets/choose.webp';  // Bundles of square/rectangular hollow sections
 import work5 from '../assets/work-5.jpg';   // Round pipe sections
 import work6 from '../assets/work-6.jpg';   // Purlins & profiles
-import { staggerContainer } from '../lib/motion';
+import { staggerContainer, fadeUp, fadeIn } from '../lib/motion';
 
 import { 
   Cog, 
@@ -137,16 +137,21 @@ export default function ServicesPage() {
 
       {/* ── 5. Our Competitive Advantage (3 top cards + 2 bottom cards centered) ── */}
       <section className="about-values-section" id="competitive-advantage">
-        <div className="about-values-container">
-          <h2 className="about-values-title">Our Competitive Advantage</h2>
+        <motion.div
+          className="about-values-container"
+          variants={staggerContainer(0.12, 0.05)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.h2 className="about-values-title" variants={fadeUp}>
+            Our Competitive Advantage
+          </motion.h2>
 
           {/* Top Row: 3 Cards */}
           <motion.div
             className="about-values-top-row"
             variants={staggerContainer(0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
           >
             {COMPETITIVE_ADVANTAGES_TOP.map(({ id, icon, title, description }) => (
               <IconCard
@@ -163,10 +168,7 @@ export default function ServicesPage() {
           {/* Bottom Row: 2 Cards Centered */}
           <motion.div
             className="about-values-bottom-row"
-            variants={staggerContainer(0.1, 0.15)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
+            variants={staggerContainer(0.1, 0.1)}
           >
             {COMPETITIVE_ADVANTAGES_BOTTOM.map(({ id, icon, title, description }) => (
               <IconCard
@@ -179,15 +181,23 @@ export default function ServicesPage() {
               />
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* ── 6. Our Products & Precision Profiles Gallery Strip (Preserved as requested) ── */}
+      {/* ── 6. Our Products & Precision Profiles Gallery Strip ── */}
       <section className="gallery-section" id="products-services-strip">
-        <div className="gallery-container">
-          <h2 className="gallery-title">Our Products & Precision Profiles</h2>
+        <motion.div
+          className="gallery-container"
+          variants={staggerContainer(0.12, 0.05)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.h2 className="gallery-title" variants={fadeUp}>
+            Our Products & Precision Profiles
+          </motion.h2>
           <GalleryGrid items={PRODUCTS_AND_SERVICES_IMAGES} layout="featured" />
-        </div>
+        </motion.div>
       </section>
 
       {/* ── 7. Footer ── */}

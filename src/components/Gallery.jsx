@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import GalleryGrid from './ui/GalleryGrid';
 import CTAButton from './ui/CTAButton';
 import works1 from '../assets/works-1.webp';
@@ -7,6 +8,7 @@ import works3 from '../assets/works-3.jpg';
 import works4 from '../assets/works-4.jpg';
 import work5 from '../assets/work-5.jpg';
 import work6 from '../assets/work-6.jpg';
+import { fadeUp, fadeIn, staggerContainer } from '../lib/motion';
 
 const GALLERY_IMAGES = [
   { id: 'g1', src: works1, alt: 'High-capacity industrial overhead crane bay and storage area' },
@@ -18,21 +20,32 @@ const GALLERY_IMAGES = [
 ];
 
 export default function Gallery() {
+  const shouldReduceMotion = useReducedMotion();
+  const childVariant = shouldReduceMotion ? fadeIn : fadeUp;
+
   return (
     <section className="gallery-section" id="gallery">
-      <div className="gallery-container">
-        <h2 className="gallery-title">Visit Our Works</h2>
+      <motion.div
+        className="gallery-container"
+        variants={shouldReduceMotion ? fadeIn : staggerContainer(0.12, 0.05)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        <motion.h2 className="gallery-title" variants={childVariant}>
+          Visit Our Works
+        </motion.h2>
 
         {/* Featured 2 top + 4 bottom layout */}
         <GalleryGrid items={GALLERY_IMAGES} layout="featured" />
 
         {/* Discover More CTA */}
-        <div className="gallery-discover-wrap">
+        <motion.div className="gallery-discover-wrap" variants={childVariant}>
           <CTAButton to="/services" variant="primary" className="gallery-discover-btn">
             Discover More
           </CTAButton>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import CTAButton from './CTAButton';
-import { fadeUp, fadeIn } from '../../lib/motion';
+import { slideInLeft, slideInRight, revealImage, imageHoverSubtle, fadeIn } from '../../lib/motion';
 
 /**
- * Reusable AlternatingSection component with scroll-reveal entrance.
+ * Reusable AlternatingSection component with directional scroll-reveal entrance and hover polish.
  */
 export default function AlternatingSection({
   title,
@@ -22,6 +22,12 @@ export default function AlternatingSection({
   id,
   className = '',
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
+  // If text is on the left (reverse=false), it slides in from left; if on right (reverse=true), from right
+  const textVariant = shouldReduceMotion ? fadeIn : (reverse ? slideInRight : slideInLeft);
+  const imageVariant = shouldReduceMotion ? fadeIn : revealImage;
+
   return (
     <section
       className={`alternating-section alternating-${theme} ${reverse ? 'reverse' : ''} ${className}`.trim()}
@@ -31,10 +37,10 @@ export default function AlternatingSection({
         {/* Content Column */}
         <motion.div
           className="alternating-text-col"
-          variants={fadeUp}
+          variants={textVariant}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.25 }}
         >
           {subtitle && <span className="alternating-subtitle">{subtitle}</span>}
           <h2 className="alternating-title">{title}</h2>
@@ -60,12 +66,20 @@ export default function AlternatingSection({
         {/* Image Column */}
         <motion.div
           className="alternating-image-col"
-          variants={fadeIn}
+          variants={imageVariant}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.25 }}
+          style={{ overflow: 'hidden' }}
         >
-          <img src={imageSrc} alt={imageAlt} className="alternating-image" loading="lazy" />
+          <motion.img
+            src={imageSrc}
+            alt={imageAlt}
+            className="alternating-image"
+            loading="lazy"
+            whileHover={shouldReduceMotion ? undefined : imageHoverSubtle.hover}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          />
         </motion.div>
       </div>
     </section>

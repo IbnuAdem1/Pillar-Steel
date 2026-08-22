@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { fadeUp, staggerContainer, imageZoom } from '../../lib/motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { fadeUp, fadeIn, staggerContainer, imageZoom } from '../../lib/motion';
 
 /**
  * Reusable GalleryGrid component with animated card stagger, image zoom, and animated modal.
@@ -13,6 +13,8 @@ export default function GalleryGrid({
   className = '',
   id,
 }) {
+  const shouldReduceMotion = useReducedMotion();
+  const cardVariant = shouldReduceMotion ? fadeIn : fadeUp;
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -77,7 +79,7 @@ export default function GalleryGrid({
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') setSelectedImage(item);
                 }}
-                variants={fadeUp}
+                variants={cardVariant}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -88,7 +90,7 @@ export default function GalleryGrid({
                   alt={item.alt || 'Pillar Steel Factory'}
                   className="gallery-img"
                   loading="lazy"
-                  variants={imageZoom}
+                  variants={shouldReduceMotion ? undefined : imageZoom}
                 />
                 {item.title && <div className="gallery-img-caption">{item.title}</div>}
               </motion.div>
@@ -108,7 +110,7 @@ export default function GalleryGrid({
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') setSelectedImage(item);
                 }}
-                variants={fadeUp}
+                variants={cardVariant}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -119,7 +121,7 @@ export default function GalleryGrid({
                   alt={item.alt || 'Pillar Steel Product'}
                   className="gallery-img"
                   loading="lazy"
-                  variants={imageZoom}
+                  variants={shouldReduceMotion ? undefined : imageZoom}
                 />
                 {item.title && <div className="gallery-img-caption">{item.title}</div>}
               </motion.div>
@@ -129,7 +131,7 @@ export default function GalleryGrid({
       ) : (
         <motion.div
           className="gallery-standard-grid"
-          variants={staggerContainer(0.08)}
+          variants={shouldReduceMotion ? fadeIn : staggerContainer(0.08)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
@@ -145,7 +147,7 @@ export default function GalleryGrid({
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') setSelectedImage(item);
               }}
-              variants={fadeUp}
+              variants={cardVariant}
               whileHover="hover"
             >
               <div className="gallery-card-img-wrap">
@@ -154,7 +156,7 @@ export default function GalleryGrid({
                   alt={item.alt || 'Pillar Steel Image'}
                   className="gallery-card-img"
                   loading="lazy"
-                  variants={imageZoom}
+                  variants={shouldReduceMotion ? undefined : imageZoom}
                 />
               </div>
               {(item.title || item.category) && (

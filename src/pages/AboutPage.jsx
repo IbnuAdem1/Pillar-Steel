@@ -177,16 +177,21 @@ export default function AboutPage() {
 
       {/* ── 6. Our Core Values (3 top cards + 2 centered bottom cards) ── */}
       <section className="about-values-section" id="core-values">
-        <div className="about-values-container">
-          <h2 className="about-values-title">Our Core Values</h2>
+        <motion.div
+          className="about-values-container"
+          variants={staggerContainer(0.12, 0.05)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.h2 className="about-values-title" variants={fadeUp}>
+            Our Core Values
+          </motion.h2>
 
           {/* Top Row: 3 Cards */}
           <motion.div
             className="about-values-top-row"
             variants={staggerContainer(0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
           >
             {CORE_VALUES_TOP.map(({ id, icon, title, description }) => (
               <IconCard
@@ -203,10 +208,7 @@ export default function AboutPage() {
           {/* Bottom Row: 2 Cards Centered */}
           <motion.div
             className="about-values-bottom-row"
-            variants={staggerContainer(0.1, 0.15)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
+            variants={staggerContainer(0.1, 0.1)}
           >
             {CORE_VALUES_BOTTOM.map(({ id, icon, title, description }) => (
               <IconCard
@@ -219,7 +221,7 @@ export default function AboutPage() {
               />
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ── 7. Footer ── */}

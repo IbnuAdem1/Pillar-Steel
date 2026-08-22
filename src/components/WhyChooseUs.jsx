@@ -1,7 +1,9 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import AccordionFeatureList from './ui/AccordionFeatureList';
 import CTAButton from './ui/CTAButton';
 import chooseImg from '../assets/choose.webp';
+import { slideInRight, revealImage, imageHoverSubtle, fadeIn, fadeUp, staggerContainer } from '../lib/motion';
 
 const REASONS = [
   {
@@ -32,26 +34,52 @@ const REASONS = [
 ];
 
 export default function WhyChooseUs() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section className="whychoose-section" id="why-pillarsteel">
       {/* Left: factory image with orange overlay */}
-      <div className="whychoose-image-side">
-        <img src={chooseImg} alt="Pillar Steel Facility" className="whychoose-bg-img" loading="lazy" />
+      <motion.div
+        className="whychoose-image-side"
+        variants={shouldReduceMotion ? fadeIn : revealImage}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        style={{ overflow: 'hidden' }}
+      >
+        <motion.img
+          src={chooseImg}
+          alt="Pillar Steel Facility"
+          className="whychoose-bg-img"
+          loading="lazy"
+          whileHover={shouldReduceMotion ? undefined : imageHoverSubtle.hover}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        />
         <div className="whychoose-overlay" />
-      </div>
+      </motion.div>
 
       {/* Right: orange panel with content */}
-      <div className="whychoose-content-side">
-        <h2 className="whychoose-title">Why Choose Us?</h2>
+      <motion.div
+        className="whychoose-content-side"
+        variants={shouldReduceMotion ? fadeIn : slideInRight}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        <motion.h2 className="whychoose-title" variants={fadeUp}>
+          Why Choose Us?
+        </motion.h2>
 
-        <div className="whychoose-card">
+        <motion.div className="whychoose-card" variants={fadeUp}>
           <AccordionFeatureList items={REASONS} />
-        </div>
+        </motion.div>
 
-        <CTAButton href="#contact" variant="secondary" className="whychoose-cta-btn" id="why-choose-us-buy-now">
-          Buy Now
-        </CTAButton>
-      </div>
+        <motion.div variants={fadeUp}>
+          <CTAButton href="#contact" variant="secondary" className="whychoose-cta-btn" id="why-choose-us-buy-now">
+            Buy Now
+          </CTAButton>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

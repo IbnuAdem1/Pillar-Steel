@@ -1589,7 +1589,7 @@ body {
 
   /* Footer mobile */
   .footer {
-    margin-top: 200px;
+    margin-top: 0;
     padding: 60px 20px 10px 20px;
   }
 

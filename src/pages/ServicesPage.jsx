@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 import works1 from '../assets/works-1.webp'; // Overhead crane workshop
 import works2 from '../assets/works-2.webp'; // Stacks of steel plates on factory floor
 import works3 from '../assets/works-3.jpg';  // RHS sections
-import works4 from '../assets/works-4.jpg';  // Bundles of square/rectangular hollow sections
+import works4 from '../assets/choose.webp';  // Bundles of square/rectangular hollow sections
 import work5 from '../assets/work-5.jpg';   // Round pipe sections
 import work6 from '../assets/work-6.jpg';   // Purlins & profiles
 import { staggerContainer } from '../lib/motion';

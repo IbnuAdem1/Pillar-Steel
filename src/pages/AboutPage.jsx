@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 // Assets matching the reference design layout exactly
 import storyImg from '../assets/works-2.webp'; // Stacks of steel plates on factory floor
-import factoryImg from '../assets/choose.webp'; // Long factory workshop with blue roll forming lines
+import factoryImg from '../assets/factory.png'; // Long factory workshop with blue roll forming lines
 import commitmentImg from '../assets/about-us.jpg'; // Roll-forming machine line
 import { staggerContainer, fadeUp } from '../lib/motion';
 

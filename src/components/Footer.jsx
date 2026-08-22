@@ -47,12 +47,6 @@ export default function Footer() {
                   <li><Link to="/contact" className="footer-link">Contact</Link></li>
                 </ul>
               </div>
-              <div className="footer-links-col">
-                <ul className="footer-links-list">
-                  <li><a href="/#why-pillarsteel" className="footer-link">Why Choose Us</a></li>
-                  <li><a href="#" className="footer-link">Blogs</a></li>
-                </ul>
-              </div>
             </div>
           </div>
 
@@ -100,10 +94,8 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="footer-copyright-bar">
         <p className="footer-copyright-text">
-          ©2025 | PillarSteel | All Rights Reserved | powered by{' '}
-          <a href="https://aittechworld.com" className="footer-copyright-link" target="_blank" rel="noopener noreferrer">
-            AIT Technology
-          </a>
+          ©2026 | PillarSteel | All Rights Reserved | powered by{' '}
+          
         </p>
       </div>
     </footer>

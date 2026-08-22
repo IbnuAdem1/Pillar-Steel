@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pillarsteelethiopia.com/sitemap.xml
+Sitemap: https://pillar-steel.com/sitemap.xml

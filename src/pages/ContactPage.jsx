@@ -59,6 +59,9 @@ export default function ContactPage() {
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
             name: 'Pillar Steel Factory',
+            url: 'https://pillar-steel.com',
+            image: 'https://pillar-steel.com/hero-bg.webp',
+            description: 'Leading construction steel manufacturer in Ethiopia, supplying high-grade structural pipes, hollow sections, and custom steel profiles.',
             telephone: ['+251930303831', '+251973032277'],
             email: 'steelpillar92@gmail.com',
             address: {
@@ -67,7 +70,22 @@ export default function ContactPage() {
               addressLocality: 'Shaggar City',
               addressCountry: 'ET',
             },
-            openingHours: 'Mo-Sa 08:30-17:30',
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+              opens: '08:30',
+              closes: '17:30',
+            },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Sales & Support',
+              telephone: '+251930303831',
+              email: 'steelpillar92@gmail.com',
+            },
+            areaServed: {
+              '@type': 'Country',
+              name: 'ET',
+            },
           }),
         }}
       />

@@ -22,11 +22,12 @@
 
   /* Typography Colors */
   --color-text-dark: #333333;
-  --color-text-muted: #656565;
+  --color-text-muted: rgb(101, 101, 101);
+  --color-section-desc: rgb(78, 70, 70);
 
   /* Typography Fonts */
-  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Lato', sans-serif;
 
   /* Layout & Spacing */
   --container-max: 1140px;

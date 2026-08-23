@@ -1,7 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Navbar from '../Navbar';
-import { fadeUp, staggerContainer } from '../../lib/motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { fadeUp, fadeIn, staggerContainer } from '../../lib/motion';
 
 /**
  * Reusable PageHero component for interior pages with staggered headline entrance animation.
@@ -15,6 +14,9 @@ export default function PageHero({
   className = '',
   id,
 }) {
+  const shouldReduceMotion = useReducedMotion();
+  const childVariant = shouldReduceMotion ? fadeIn : fadeUp;
+
   const renderTitle = () => {
     if (!highlightWord) return title;
     const parts = title.split(new RegExp(`(${highlightWord})`, 'gi'));
@@ -39,19 +41,19 @@ export default function PageHero({
     >
       <motion.div
         className="page-hero-content"
-        variants={staggerContainer(0.1, 0.1)}
+        variants={shouldReduceMotion ? fadeIn : staggerContainer(0.12, 0.05)}
         initial="hidden"
         animate="show"
       >
-        <motion.h1 className="page-hero-title" variants={fadeUp}>
+        <motion.h1 className="page-hero-title" variants={childVariant}>
           {renderTitle()}
         </motion.h1>
         {subtitle && (
-          <motion.p className="page-hero-subtitle" variants={fadeUp}>
+          <motion.p className="page-hero-subtitle" variants={childVariant}>
             {subtitle}
           </motion.p>
         )}
-        {extraContent && <motion.div variants={fadeUp}>{extraContent}</motion.div>}
+        {extraContent && <motion.div variants={childVariant}>{extraContent}</motion.div>}
       </motion.div>
     </section>
   );

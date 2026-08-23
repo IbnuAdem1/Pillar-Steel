@@ -8,7 +8,7 @@ import ContactForm from '../components/ui/ContactForm';
 import Footer from '../components/Footer';
 import chooseImg from '../assets/choose.webp';
 import logoImg from '../assets/nav-logo.png';
-import { staggerContainer, fadeUp } from '../lib/motion';
+import { staggerContainer, fadeUp, fadeIn, slideInLeft, slideInRight, revealImage } from '../lib/motion';
 
 const CONTACT_INFO = [
   {
@@ -125,17 +125,23 @@ export default function ContactPage() {
       <section className="contact-form-section" id="send-message">
         <div className="contact-form-layout-container">
           {/* Left Form Column */}
-          <div className="contact-form-column">
+          <motion.div
+            className="contact-form-column"
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <ContactForm
               title="Send Us A Message"
               subtitle="Fill out the form below and our team will get back to you within 24 hours."
             />
-          </div>
+          </motion.div>
 
           {/* Right Brand Showcase Column */}
           <motion.div
             className="contact-brand-card"
-            variants={fadeUp}
+            variants={slideInRight}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
@@ -160,14 +166,22 @@ export default function ContactPage() {
 
       {/* ── 4. Visit Our Factory & Interactive Map ── */}
       <section className="contact-map-section" id="factory-map">
-        <div className="contact-map-container">
+        <motion.div
+          className="contact-map-container"
+          variants={staggerContainer(0.12, 0.05)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="contact-map-header">
-            <h2 className="contact-map-title">Visit Our Factory</h2>
-            <p className="contact-map-subtitle">
+            <motion.h2 className="contact-map-title" variants={fadeUp}>
+              Visit Our Factory
+            </motion.h2>
+            <motion.p className="contact-map-subtitle" variants={fadeUp}>
               Located conveniently in Galan City with direct heavy freight access across Addis Ababa and regional corridors.
-            </p>
+            </motion.p>
           </div>
-          <div className="contact-map-frame-wrap">
+          <motion.div className="contact-map-frame-wrap" variants={fadeUp}>
             <iframe
               className="contact-map-iframe"
               src="https://maps.google.com/maps?q=Pillar%20Steel%20Factory%20Bulgaria%20Street%20Addis%20Ababa&t=m&z=14&output=embed&iwloc=near"
@@ -175,8 +189,8 @@ export default function ContactPage() {
               aria-label="Pillar Steel Factory Location Map"
               loading="lazy"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ── 5. Footer ── */}

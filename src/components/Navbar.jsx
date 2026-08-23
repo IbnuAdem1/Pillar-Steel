@@ -105,9 +105,7 @@ export default function Navbar() {
           {/* Social Icons */}
           <div className="navbar-socials" aria-label="Social Media Links">
             <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="social-icon"
               aria-label="Facebook"
             >
@@ -116,9 +114,7 @@ export default function Navbar() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="social-icon"
               aria-label="LinkedIn"
             >
@@ -127,9 +123,7 @@ export default function Navbar() {
               </svg>
             </a>
             <a
-              href="https://telegram.org"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="social-icon"
               aria-label="Telegram"
             >

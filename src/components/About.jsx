@@ -8,7 +8,7 @@ export default function About() {
       id="about"
       className="about-section"
       title="About PillarSteel"
-      description="Pilar Steel Factory is a dynamic and forward-thinking steel manufacturing company committed to delivering high quality steel products and unparalleled service. Built on foundation of innovation, reliability, and a deep understanding of the evolving needs of the construction and manufacturing sectors, we are poised to become a trusted partner in a stronger future for Ethiopia and the East African region."
+      description="Pillar Steel Factory is a dynamic and forward-thinking steel manufacturing company committed to delivering high quality steel products and unparalleled service. Built on foundation of innovation, reliability, and a deep understanding of the evolving needs of the construction and manufacturing sectors, we are poised to become a trusted partner in a stronger future for Ethiopia and the East African region."
       imageSrc={aboutImg}
       imageAlt="Pillar Steel Factory and Manufacturing Equipment"
       ctaText="Read More"

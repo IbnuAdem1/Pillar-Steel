@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { fadeUp, hoverLift } from '../../lib/motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { fadeUp, fadeIn, hoverLift } from '../../lib/motion';
 
 /**
  * Reusable InfoCard component with hover lift and scroll entrance.
@@ -14,6 +14,8 @@ export default function InfoCard({
   className = '',
   id,
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   const getHref = () => {
     if (linkHref) return linkHref;
     if (linkType === 'tel') return `tel:${content.replace(/\s+/g, '')}`;
@@ -27,11 +29,11 @@ export default function InfoCard({
     <motion.div
       className={`info-card ${className}`.trim()}
       id={id}
-      variants={fadeUp}
+      variants={shouldReduceMotion ? fadeIn : fadeUp}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      whileHover={hoverLift.hover}
+      whileHover={shouldReduceMotion ? undefined : hoverLift.hover}
     >
       <div className="info-card-icon-wrap">
         {React.isValidElement(IconOrElement) ? (

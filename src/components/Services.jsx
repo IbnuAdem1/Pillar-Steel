@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Layers, Headphones, Truck } from 'lucide-react';
 import IconCard from './ui/IconCard';
+import { fadeUp, fadeIn, staggerContainer } from '../lib/motion';
 
 const SERVICES = [
   {
@@ -24,11 +26,25 @@ const SERVICES = [
 ];
 
 export default function Services() {
+  const shouldReduceMotion = useReducedMotion();
+  const childVariant = shouldReduceMotion ? fadeIn : fadeUp;
+
   return (
     <section className="services-section" id="services">
-      <div className="services-container">
-        <h2 className="services-title">Our Services</h2>
-        <div className="services-grid">
+      <motion.div
+        className="services-container"
+        variants={shouldReduceMotion ? fadeIn : staggerContainer(0.12, 0.05)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.h2 className="services-title" variants={childVariant}>
+          Our Services
+        </motion.h2>
+        <motion.div
+          className="services-grid"
+          variants={shouldReduceMotion ? fadeIn : staggerContainer(0.1)}
+        >
           {SERVICES.map(({ id, title, description, icon }) => (
             <IconCard
               key={id}
@@ -39,8 +55,8 @@ export default function Services() {
               variant="service"
             />
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

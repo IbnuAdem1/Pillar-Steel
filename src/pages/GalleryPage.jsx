@@ -1,8 +1,10 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import SEO from '../components/layout/SEO';
 import PageHero from '../components/ui/PageHero';
 import GalleryGrid from '../components/ui/GalleryGrid';
 import Footer from '../components/Footer';
+import { fadeUp, fadeIn, staggerContainer } from '../lib/motion';
 
 // Assets
 import heroBg from '../assets/hero-bg.webp';
@@ -27,7 +29,7 @@ const GALLERY_ITEMS = [
     id: 'gal-2',
     src: works2,
     alt: 'Heavy gauge flat steel plates and raw sheets stacked in storage bay',
-    title: 'Flat Steel Plates & Coils',
+    title: 'Flat Steel Plates',
     category: 'Raw Materials & Sheets',
   },
   {
@@ -40,22 +42,22 @@ const GALLERY_ITEMS = [
   {
     id: 'gal-4',
     src: works4,
-    alt: 'SHS (Square Hollow Sections) structural steel tubes neatly stacked',
-    title: 'SHS Square Hollow Sections',
+    alt: 'CHS (Circular Hollow Sections)',
+    title: 'CHS (Circular Hollow Sections)',
     category: 'Products',
   },
   {
     id: 'gal-5',
     src: work5,
-    alt: 'Heavy-duty circular round pipe sections for structural construction',
-    title: 'Circular Round Steel Pipes',
+    alt: 'SHS (Square Hollow Sections)',
+    title: 'SHS (Square Hollow Sections)',
     category: 'Products',
   },
   {
     id: 'gal-6',
     src: work6,
-    alt: 'Cold-formed custom steel purlins and profile sections for roofing and framing',
-    title: 'Custom Steel Purlins & Profiles',
+    alt: 'LTZ & D- Profiles',
+    title: 'LTZ & D- Profiles',
     category: 'Products',
   },
   // {
@@ -75,8 +77,8 @@ const GALLERY_ITEMS = [
   {
     id: 'gal-10',
     src: aboutImg,
-    alt: 'Tube mill calibration and precision steel forming operations under quality monitoring',
-    title: 'Quality Testing & Mill Calibration',
+    alt: 'High-Frequency ERW Mill Machine',
+    title: 'High-Frequency ERW Mill Machine',
     category: 'Operations',
   },
   {
@@ -89,6 +91,8 @@ const GALLERY_ITEMS = [
 ];
 
 export default function GalleryPage() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <>
       <SEO
@@ -106,10 +110,17 @@ export default function GalleryPage() {
 
       {/* ── 2. Filterable Gallery Grid ── */}
       <section className="gallery-main-section" id="gallery-grid-view">
-        <div className="gallery-container">
+        <motion.div
+          className="gallery-container"
+          variants={shouldReduceMotion ? fadeIn : staggerContainer(0.12, 0.05)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="gallery-section-intro">
-            <h2 className="gallery-title">Our Works & Facilities</h2>
-            
+            <motion.h2 className="gallery-title" variants={shouldReduceMotion ? fadeIn : fadeUp}>
+              Our Works & Facilities
+            </motion.h2>
           </div>
 
           <GalleryGrid
@@ -118,7 +129,7 @@ export default function GalleryPage() {
             showFilter={true}
             layout="grid"
           />
-        </div>
+        </motion.div>
       </section>
 
       {/* ── 3. Footer ── */}
